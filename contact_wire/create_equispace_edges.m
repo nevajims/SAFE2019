@@ -4,9 +4,8 @@
 
 function  create_equispace_edges(no_points)
 
-files_to_process  = {'AC-80.mat','AC-100.mat','AC-107.mat','AC-120.mat','AC-150.mat','BC-100.mat','BC-107.mat','BC-120.mat','BC-150.mat'}   ;
-
-diameters_         = [10.6, 12.0, 12.3, 13.2, 14.8, 12.0, 12.24, 12.85, 14.5]                                                               ;
+files_to_process  = {'AC-107 - 1pc wear.mat','AC-107 - 2pc wear','AC-107 - 5pc wear','AC-107 - 10pc wear','AC-107 - 20pc wear','AC-107 - 30pc wear','AC-107 - 40pc wear','AC-107 - 50pc wear'}   ;
+diameters_         = [12.3,12.3,12.3,12.3,12.3,12.3,12.3,12.3]                                                               ;
 
 for index = 1: length(files_to_process)
 load(files_to_process{index})
