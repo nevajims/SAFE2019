@@ -1,14 +1,14 @@
 function output_mesh = create_SAFE_mesh( number_points, equispced_variable, do_plot, save_YN  )
 
 % Input Parameters
-% number_points                    -  number of points around the edge of the mesh
+% number_points                    -   number of points around the edge of the mesh (for variable this is the number if they were all fine spaced)
 % equispced_variable               -   1 equispced  2 variable
 % do_plot                          -   1 = Yes 
 % save_YN                          -   1 = Yes -  saves to    meshes directory  under filename_MESH.mat     (or filename_MESH_2.mat, filename_MESH_3.mat etc when they exist) 
 
 
-% MESH TWWEKING PARAMETRS ----------------------------------------
-% MESH TWWEKING PARAMETRS ----------------------------------------
+% MESH TWEEKING PARAMETRS ----------------------------------------
+% MESH TWEEKING PARAMETRS ----------------------------------------
 if number_points< 120
 cbv = 3   ;        %    curvature_bound_value
 slm = 0.6 ;        %    small_length_multiplier
@@ -24,25 +24,14 @@ cbv = 0.6;
 slm = 1  ;     %    small_length_multiplier
 llm = 10  ;    %    large_length_multiplier
 end
-% MESH TWWEKING PARAMETRS ----------------------------------------
-% MESH TWWEKING PARAMETRS ----------------------------------------
-
-
+% MESH TWEEKING PARAMETRS ----------------------------------------
+% MESH TWEEKING PARAMETRS ----------------------------------------
 
 input_settings.cbv = cbv ;
 input_settings.slm = slm ;
 input_settings.llm = llm ;
 input_settings.number_points= number_points;
 input_settings.equispced_variable = equispced_variable;
-
-% DOES NOT define the material type-  this to be done later
-% dimensions of the various AC contact wires   area / diameter  for each on   mm^2 / mm  
-% matl_name = 'steel';
-% default disperse vaules--------------------------------------------
-% youngs_modulus       = 216.9e9;
-% poissons_ratio       = 0.2865;
-% density              = 7932;
-% if number_points < 60
 
 triangular_element_type = 2;
 cd('raw_profiles')
@@ -84,12 +73,12 @@ end %switch(equispced_variable)
 hdata.hmax                     =   nom_el_size;
 ops.output                     =   false;
 
-
 [mesh.nd.pos, mesh.el.nds, mesh.el.fcs] = mesh2d(nd_, [], hdata, ops);
 mesh.el.type  = ones(size(mesh.el.nds, 1), 1) * triangular_element_type ;
 mesh.nd.dof   = ones(size(mesh.nd.pos, 1), 3)                           ;
 
 output_mesh = mesh;
+
 if do_plot == 1
    
 figure('units','normalized','outerposition',[0 0 1 1]);
@@ -118,10 +107,8 @@ disp(['mesh width  = ', num2str(mesh_width)])
 disp(['% from actual / nominal  = ', num2str( round( perc_from_actual*10)/10  ),'%/',num2str(round(perc_from_nominal*10)/10),'%'])
 
 mesh.details.cw_nom_dimensions     = cw_dimensions   ;
-
 mesh.details.cw_act_dimensions.mesh_area     =    mesh_area    ;
 mesh.details.cw_act_dimensions.mesh_width    =    mesh_width   ;
-
 mesh.details.file_name         = file_name       ; 
 mesh.details.input_settings    = input_settings  ;
 
