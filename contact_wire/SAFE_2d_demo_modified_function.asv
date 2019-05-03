@@ -96,6 +96,7 @@ nd_ = [real(variable_points_mm)'*1E-3,imag(variable_points_mm)'*1E-3];
 
 %nd_ = [real(equispaced_points_mm )'*1E-3,imag(equispaced_points_mm )'*1E-3];
 %--------------------------------------------------------------------------
+
 mesh.matl{1}.name              =   matl_name;
 mesh.matl{1}.stiffness_matrix  =   fn_iso_stiffness_matrix(youngs_modulus, poissons_ratio);
 mesh.matl{1}.density           =   density;

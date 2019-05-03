@@ -1,4 +1,4 @@
-function [reshaped_proc_data , sorted_lookup , data_wn_matrix] =  proc_data_into_modes_safe(data)
+function [reshaped_proc_data , sorted_lookup , data_wn_matrix] =  proc_data_into_modes_safe(data,no_modes)
 % calculate the group velocity once all the other calculations are done 
 % --------------------------------------------------------------
 % need to check that the first dps is the same for both routines-  
@@ -26,7 +26,9 @@ do_modes_plots               = 0;
 no_points                    = size(data.ms_x,2);
 no_nodes                     = size(data.ms_x,1);
 %no_mode_shapes               = round(no_points/data.no_files);
-no_mode_shapes = 20;
+
+no_mode_shapes = no_modes;
+
 %no_mode_shapes               = 200;
 no_points_per_mode           = data.no_files;
 %no_points_per_mode = 10;0
