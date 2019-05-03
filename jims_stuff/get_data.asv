@@ -2,7 +2,7 @@
 function get_data(file_type,do_plot)
 
 
-a      = dir(['*.', file_type])             ;
+a      = dir(['*.', png'])             ;
 b      = {a.name}                 ;
 choice = listdlg('ListString',b)  ;
 disp('here')

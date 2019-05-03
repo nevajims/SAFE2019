@@ -2,6 +2,7 @@ function [equispaced_points_mm , path_distance ]  = get_outside_edge( data , hei
 
 horz_mm_p_pix = width_/max(data.x_)                                                 ;
 vert_mm_p_pix = height_/max(data.y_)                                                ;
+
 complex_p                                    =   data.x_ +  1i * data.y_            ;
 ordered_complex_p                            =   put_points_in_order(complex_p)     ;
 
@@ -88,7 +89,7 @@ end % while more_points ==1
 ordered_complex_p =  complex_p(ordered_indices);
 
 end %function ordered_complex_p = put_points_in_order(complex_p);
-%----------------------------------------------------------------------------------------------------------
+
 function path_length =  get_path_length(ordered_complex_p);
 % path legth (1) = 0
 % path legth (2) = dist(1-2)
@@ -107,7 +108,6 @@ path_length(index) = path_length(index-1)+  abs(current_val-ordered_complex_p(in
 
 end %for index = 2 : length(ordered_complex_p)
 end %function path_length =  get_path_length = (ordered_complex_p);
-%----------------------------------------------------------------------------------------------------------
 
 function [equispaced_points,equispaced_path_length]   = get_equispaced_points(path_length, ordered_complex_p, no_of_points); 
 distance_per_point = max(path_length)/(no_of_points-1);
@@ -129,4 +129,3 @@ equispaced_points(index)      =  -1 * spline(triple_path_length(rel_indices) , t
 end %for index = 2 : no_of_points 
 
 end % function
-%----------------------------------------------------------------------------------------------------------

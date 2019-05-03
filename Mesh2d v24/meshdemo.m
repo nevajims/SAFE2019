@@ -695,24 +695,24 @@ hdata = [];
 options.output = false;
 
 node = [0 0; 1 0; 1 1; 0 1];              % Simple square example
-% 
-% [p,t] = mesh2d(node,[],[],options);       % Auto size fun only
-% 
-% figure
-% subplot(2,2,1)
-% patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
-% axis equal off;
-% title('Automatic size fun only')
-% 
-% 
-% hdata.hmax = 0.1;                         % Global size of 0.1
-% 
-% [p,t] = mesh2d(node,[],hdata,options);
-% 
-% subplot(2,2,3)
-% patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
-% axis equal off;
-% title('Global size fun with h0=0.1')
+ 
+ [p,t] = mesh2d(node,[],[],options);       % Auto size fun only
+ 
+ figure
+ subplot(2,2,1)
+ patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
+ axis equal off;
+ title('Automatic size fun only')
+ 
+ 
+ hdata.hmax = 0.1;                         % Global size of 0.1
+ 
+ [p,t] = mesh2d(node,[],hdata,options);
+ 
+ subplot(2,2,3)
+ patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
+ axis equal off;
+ title('Global size fun with h0=0.1')
 
 
 hdata.hmax = 0.1;                         % Global size of 0.1
@@ -726,15 +726,15 @@ patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
 axis equal off;
 title('Additional boundary layer function on bottom edge')
 
-% hdata = [];
-% hdata.fun = @hfun1;
-% 
-% [p,t] = mesh2d(node,[],hdata,options);
-% 
-% subplot(2,2,4)
-% patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
-% axis equal off; hold on;
-% title('User defined funcion centred at [0.25,0.75]')
+ hdata = [];
+ hdata.fun = @hfun1;
+ 
+ [p,t] = mesh2d(node,[],hdata,options);
+ 
+ subplot(2,2,4)
+ patch('faces',t,'vertices',p,'facecolor','none','edgecolor','b');
+ axis equal off; hold on;
+ title('User defined funcion centred at [0.25,0.75]')
 
 
 % Refinement

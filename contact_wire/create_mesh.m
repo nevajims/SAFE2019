@@ -25,6 +25,7 @@ ep_mm    = data.equispaced_points_mm;
 nes_mm   = data.path_distance;
 
 nom_el_size = 0.5*nes_mm * 1E-3;
+
 nd_ = [real(ep_mm)'*1E-3,imag(ep_mm)'*1E-3];
 
 %--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ mesh.matl{1}.name              =   matl_name;
 mesh.matl{1}.stiffness_matrix  =   fn_iso_stiffness_matrix(youngs_modulus, poissons_ratio);
 mesh.matl{1}.density           =   density;
 [long_vel, shear_vel]          =   fn_velocities_from_stiffness_and_density(youngs_modulus, poissons_ratio, density);
+
 hdata.hmax                     =   nom_el_size;
 ops.output                     =   false;
 
