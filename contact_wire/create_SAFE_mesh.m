@@ -6,7 +6,6 @@ function output_mesh = create_SAFE_mesh( number_points, equispced_variable, do_p
 %  do_plot                          -   1 = Yes 
 %  save_YN                          -   1 = Yes -  saves to    meshes directory  under filename_MESH.mat     (or filename_MESH_2.mat, filename_MESH_3.mat etc when they exist) 
 
-
 % MESH TWEEKING PARAMETRS ----------------------------------------
 % MESH TWEEKING PARAMETRS ----------------------------------------
 if number_points< 120

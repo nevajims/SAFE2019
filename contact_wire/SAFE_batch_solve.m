@@ -1,4 +1,4 @@
-function reshaped_proc_data =  SAFE_batch_solve(mat_index , indep_var , points_in_sol , max_freq ,no_modes, do_save, do_plot)
+function reshaped_proc_data =  SAFE_batch_solve(mat_index , indep_var , points_in_sol , max_freq , no_modes, do_save, do_plot)
 
 % INPUT DATA------------------------------------------------------------------------
 % INPUT DATA------------------------------------------------------------------------ 
@@ -17,7 +17,6 @@ solve_details.indep_var     = indep_var       ;
 solve_details.points_in_sol = points_in_sol   ; 
 solve_details.max_freq      = max_freq        ; 
 solve_details.no_modes      = no_modes        ;
-
 
 [mat_properties, OK_]      =  get_mat_properties(mat_index) ;
 triangular_element_type    =  2                             ;
@@ -63,8 +62,13 @@ end
 
 reshaped_proc_data.mesh = mesh                      ;
 reshaped_proc_data.solve_details  = solve_details   ;
-plot_data (reshaped_proc_data ,max_freq ,long_vel,all_file_names{choice(index)},do_plot)
-save_data (reshaped_proc_data,all_file_names{choice(index)}, do_save)
+
+%keyboard
+
+plot_data (reshaped_proc_data , max_freq , long_vel , all_file_names{choice(index)} , do_plot  )
+
+
+save_data (reshaped_proc_data , all_file_names{choice(index)}, do_save)
 
 
 end % for index = 1: length (choice)
